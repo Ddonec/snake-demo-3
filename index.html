@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="./css/animate.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #start-warp {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 0;
+            z-index: 1;
+        }
+
+        #gameTips {
+            width: 80%;
+            height: 40%;
+            position: absolute;
+            top: 30%;
+            left: 10%;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0px 0px 10px 10px #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        h2{
+            color: darkkhaki;
+        }
+        ol{
+            list-style: none;
+            color: grey;
+            margin-top: 10px;
+        }
+        li{
+            line-height:200%;
+        }
+        #tips {
+            width: 100%;
+            font-size: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            bottom: 5%;
+            color: #fff;
+        }
+
+        #bg{
+            position: absolute;
+            top:0;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+        }
+        .score{
+            position: absolute;
+            top: 5px;
+            right:10px;
+            font-size: 20px;
+        }
+        #end-warp {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 0;
+            z-index: 1;
+            display: none;
+        }
+
+        #end {
+            width: 80%;
+            height: 20%;
+            position: absolute;
+            top: 40%;
+            left: 10%;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0px 0px 10px 10px #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #end p{
+            line-height: 30px;
+            margin-top: 10px;
+            color: grey;
+        }
+        #again {
+            width: 100%;
+            font-size: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            bottom: 5%;
+            color: #fff;
+        }
+        #scoreInfo{
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+<!--画布的大小必须设置在canvas标签里边-->
+<canvas id="canvas">
+    <h2>您的浏览器太垃圾了..连canvas都不支持..唉......</h2>
+</canvas>
+<div id="start-warp">
+    <div id="gameTips">
+        <h2>游戏规则</h2>
+        <ol>
+            <li>1.滑动屏幕,控制小青的方向.</li>
+            <li>2.每吃一个食物,小青就增重1kg.</li>
+            <li>3.注意:不可以吃到小青的身体.</li>
+            <li>4.小青撞到屏幕边沿不会有事情.</li>
+            <li>5.!@#$%^&*()_+!@#$%^&*()_+</li>
+        </ol>
+    </div>
+    <p class="animated infinite flash" id="tips">按 任 意 位 置 开 始 游 戏</p>
+</div>
+<div id="end-warp">
+    <div id="end">
+        <p id="scoreInfo"></p>
+        <p id="endMsg"></p>
+        <p>退出请按返回</p>
+    </div>
+    <p class="animated infinite flash" id="again">按 任 意 位 置 再 次 游 戏</p>
+</div>
+<p class="score">weight: 0kg</p>
+<img src="./img/bg.jpg" id="bg" alt="">
+<script src="js/hammer.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
